@@ -16,7 +16,6 @@
 		BFF480521C34226B00C284E5 /* QSDaySelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4804D1C34226B00C284E5 /* QSDaySelectionView.m */; };
 		BFF480531C34226B00C284E5 /* QSSingleWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4804F1C34226B00C284E5 /* QSSingleWeekView.m */; };
 		BFF480541C34226B00C284E5 /* QSWeekSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF480511C34226B00C284E5 /* QSWeekSelectorView.m */; };
-		BFF480551C3422C300C284E5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFF480401C34224B00C284E5 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,7 +151,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFF480551C3422C300C284E5 /* Info.plist in Resources */,
 				BFF480471C34224B00C284E5 /* Main.storyboard in Resources */,
 				BFF480451C34224B00C284E5 /* Assets.xcassets in Resources */,
 				BFF480461C34224B00C284E5 /* LaunchScreen.storyboard in Resources */,
@@ -286,6 +284,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiushao.QSWeekSelectorView;
 				PRODUCT_NAME = QSWeekSelectorViewExample;
+				WARNING_CFLAGS = "-Wno-shorten-64-to-32";
 			};
 			name = Debug;
 		};
@@ -298,6 +297,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiushao.QSWeekSelectorView;
 				PRODUCT_NAME = QSWeekSelectorViewExample;
+				WARNING_CFLAGS = "-Wno-shorten-64-to-32";
 			};
 			name = Release;
 		};
