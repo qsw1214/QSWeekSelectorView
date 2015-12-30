@@ -14,7 +14,6 @@
 
 @interface QSWeekSelectorView () <QSSingleWeekViewDelegate>
 
-@property(nonatomic, weak) UIScrollView *scrollView;
 @property(nonatomic, strong) QSSingleWeekView *singleWeekViews;
 @property(nonatomic, weak) QSDaySelectionView *selectionView;
 @property(nonatomic, strong) QSDaySelectionView *todayView;
@@ -231,25 +230,12 @@
     _preDragOffsetX = MAXFLOAT;
     _preDragSelectionX = MAXFLOAT;
     _locale = [NSLocale autoupdatingCurrentLocale];
-    _gregorian =
-        [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    _gregorian = [[NSCalendar alloc]
+        initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
   }
 
   CGFloat width = CGRectGetWidth(self.frame);
   CGFloat height = CGRectGetHeight(self.frame);
-  CGRect scrollViewFrame = CGRectMake(0, 0, width, height - 1);
-  UIScrollView *scrollView =
-      [[UIScrollView alloc] initWithFrame:scrollViewFrame];
-  scrollView.contentSize = CGSizeMake(width, height);
-  scrollView.contentOffset = CGPointMake(0, 0);
-  scrollView.pagingEnabled = YES;
-  scrollView.delegate = self;
-  scrollView.showsVerticalScrollIndicator = NO;
-  scrollView.showsHorizontalScrollIndicator = NO;
-  scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-  [self addSubview:scrollView];
-  self.scrollView = scrollView;
-
   UIView *lineView =
       [[UIView alloc] initWithFrame:CGRectMake(0, height, width, 1)];
   lineView.backgroundColor = self.lineColor;
@@ -290,7 +276,7 @@
   _singleWeekViews.startDate =
       self.selectedDate; // needs to be set AFTER delegate
 
-  [self.scrollView addSubview:_singleWeekViews];
+  [self addSubview:_singleWeekViews];
 }
 
 - (NSDate *)dateByAddingDays:(NSInteger)days toDate:(NSDate *)date {
